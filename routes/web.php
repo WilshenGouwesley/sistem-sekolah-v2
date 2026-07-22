@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 // Manajemen Guru
-Route::name('teachers')->prefix('teachers')->group(function () {
+Route::name('teachers.')->prefix('teachers')->group(function () {
     Route::get('/', [TeacherController::class, 'index'])->name('index');
     
     Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
@@ -36,7 +36,7 @@ Route::name('teachers')->prefix('teachers')->group(function () {
 });
 
 // Manajemen Siswa
-Route::name('students')->prefix('students')->group(function () {
+Route::name('students.')->prefix('students')->group(function () {
     Route::get('/', [StudentController::class, 'index'])->name('index');
 
     Route::get('/{id}', [StudentController::class, 'show'])->name('show');
@@ -53,7 +53,7 @@ Route::name('students')->prefix('students')->group(function () {
 });
 
 // Manajemen Kelas (Invokable)
-Route::name('classes')->prefix('classes')->group(function () {
+Route::name('classes.')->prefix('classes')->group(function () {
     Route::get('/', IndexController::class)->name('index');
 
     Route::get('/{id}', ShowController::class)->name('show');
