@@ -4,59 +4,48 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
-{
-    public function index()
-    {
-        return "Ini adalah halaman daftar guru";
-    }
-
-    public function show($id)
-    {
-        return "Menampilkan detail guru dengan ID: {$id}";
-    }
-
-    public function create()
-    {
-        return "Ini adalah halaman untuk membuat guru baru";
-    }
-
-    public function store(Request $request)
-    {
-        return "Menyimpan data guru baru";
-    }
-
-    public function edit($id)
-    {
-        return "Ini adalah halaman untuk mengedit guru dengan ID: {$id}";
-    }
-
-    public function update(Request $request, $id)
-    {
-        return "Memperbarui data guru dengan ID: {$id}";
-    }
-
-    public function destroy($id)
-    {
-        return "Menghapus data siswa dengan ID: {$id}";
-    }
-}
-
 class StudentController extends Controller
 {
     public function index()
     {
-        return "Ini adalah halaman daftar siswa";
+        $title = "Sistem Sekolah - Daftar Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+            ],
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL',
+                'major' => 'AKL',
+            ]
+        ];
+
+            return view('students.index', [
+                'title' => $title,
+                'students' => $students
+            ]);
     }
 
     public function show($id)
     {
-        return "Menampilkan detail siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Siswa";
+        return view('students.show', [
+            'title' => $title
+        ]);
     }
 
     public function create()
     {
-        return "Ini adalah halaman untuk membuat siswa baru";
+        $title = "Sistem Sekolah - Tambah Siswa";
+        return view('students.create', [
+            'title' => $title
+        ]);
     }
 
     public function store(Request $request)
@@ -66,7 +55,10 @@ class StudentController extends Controller
 
     public function edit($id)
     {
-        return "Ini adalah halaman untuk mengedit siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Edit Siswa";
+        return view('students.edit', [
+            'title' => $title
+        ]);
     }
 
     public function update(Request $request, $id)
