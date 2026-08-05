@@ -35,8 +35,49 @@ class StudentController extends Controller
     public function show($id)
     {
         $title = "Sistem Sekolah - Detail Siswa";
+
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+                'gender' => 'L',
+            ],
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL',
+                'major' => 'AKL',
+                'gender' => 'P',
+            ]
+        ];
+
+        $found = null;
+        foreach ($students as $s) {
+            if ($s['id'] == $id) {
+                $found = $s;
+                break;
+            }
+        }
+
+        if (!$found) {
+            abort(404, 'Siswa tidak ditemukan');
+        }
+
+        $student = (object)[
+            'nis' => $found['nis'],
+            'name' => $found['name'],
+            'gender' => $found['gender'],
+            'major' => $found['major'],
+            'class' => $found['class'],
+        ];
+
         return view('students.show', [
-            'title' => $title
+            'title' => $title,
+            'student' => $student,
         ]);
     }
 
@@ -56,8 +97,49 @@ class StudentController extends Controller
     public function edit($id)
     {
         $title = "Sistem Sekolah - Edit Siswa";
+
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+                'gender' => 'L',
+            ],
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL',
+                'major' => 'AKL',
+                'gender' => 'P',
+            ]
+        ];
+
+        $found = null;
+        foreach ($students as $s) {
+            if ($s['id'] == $id) {
+                $found = $s;
+                break;
+            }
+        }
+
+        if (!$found) {
+            abort(404, 'Siswa tidak ditemukan');
+        }
+
+        $student = (object)[
+            'nis' => $found['nis'],
+            'name' => $found['name'],
+            'gender' => $found['gender'],
+            'major' => $found['major'],
+            'class' => $found['class'],
+        ];
+
         return view('students.edit', [
-            'title' => $title
+            'title' => $title,
+            'student' => $student,
         ]);
     }
 

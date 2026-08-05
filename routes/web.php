@@ -24,15 +24,15 @@ Route::name('teachers.')->prefix('teachers')->group(function () {
     
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
 
-    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show')->whereNumber('id');
 
     Route::post('/', [TeacherController::class, 'store'])->name('store');
 
-    Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+    Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit')->whereNumber('id');
  
-    Route::put('/{id}', [TeacherController::class, 'update'])->name('update');
+    Route::put('/{id}', [TeacherController::class, 'update'])->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy')->whereNumber('id');
 });
 
 // Manajemen Siswa
@@ -41,15 +41,15 @@ Route::name('students.')->prefix('students')->group(function () {
 
     Route::get('/create', [StudentController::class, 'create'])->name('create');
 
-    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show')->whereNumber('id');
 
     Route::post('/', [StudentController::class, 'store'])->name('store');
 
     Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
 
-    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
+    Route::put('/{id}', [StudentController::class, 'update'])->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy')->whereNumber('id');
 });
 
 // Manajemen Kelas (Invokable)
@@ -58,30 +58,16 @@ Route::name('classes.')->prefix('classes')->group(function () {
 
     Route::get('/create', CreateController::class)->name('create');
 
-    Route::get('/{id}', ShowController::class)->name('show');
+    Route::get('/{id}', ShowController::class)->name('show')->whereNumber('id');
 
     Route::post('/', StoreController::class)->name('store');
 
-    Route::get('/{id}/edit', EditController::class)->name('edit');
+    Route::get('/{id}/edit', EditController::class)->name('edit')->whereNumber('id');
 
-    Route::put('/{id}', UpdateController::class)->name('update');
+    Route::put('/{id}', UpdateController::class)->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', DestroyController::class)->name('destroy');
+    Route::delete('/{id}', DestroyController::class)->name('destroy')->whereNumber('id');
 });
 
 // Manajemen Jurusan
-Route::name('majors.')->prefix('majors')->group(function () {
-    Route::get('/', [MajorController::class, 'index'])->name('index');
-
-    Route::get('/create', [MajorController::class, 'create'])->name('create');
-
-    Route::get('/{id}', [MajorController::class, 'show'])->name('show');
-
-    Route::post('/', [MajorController::class, 'store'])->name('store');
-
-    Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('edit');
-
-    Route::put('/{id}', [MajorController::class, 'update'])->name('update');
-
-    Route::delete('/{id}', [MajorController::class, 'destroy'])->name('destroy');
-});
+Route::resource('majors', MajorController::class);
