@@ -11,7 +11,6 @@
             <div>
                 <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Guru</p>
                 <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $teacher->name }}</h1>
-                <p class="mt-1 font-mono text-xs text-slate-500">NIS 2024001</p>
             </div>
             <a href="#"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>

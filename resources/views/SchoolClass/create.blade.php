@@ -12,9 +12,9 @@
 
     <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
         <div>
-            <label for="nip"
+            <label for="name"
                 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama Kelas</label>
-            <input type="text" id="nip" name="nip" placeholder="Contoh: XII TKJ 1"
+            <input type="text" id="name" name="name" placeholder="Contoh: XII TKJ 1"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
         </div>
 
@@ -22,25 +22,25 @@
             <label for="grade" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Tingkat</label>
             <select id="grade" name="grade"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                <option value="10">X</option>
-                <option value="11">XI</option>
-                <option value="12">XII</option>
+                <option value="X">X</option>
+                <option value="XI">XI</option>
+                <option value="XII">XII</option>
             </select>
         </div>
 
         <div>
             <label for="major" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jurusan</label>
-            <select id="major" name="major"
+            <select id="major" name="major_id"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 @foreach ($majors as $major)
-                    <option value="{{ $major['code'] }}">{{ $major['code'] }} - {{ $major['name'] }}</option>
+                    <option value="{{ $major['id'] }}">{{ $major['code'] }} - {{ $major['name'] }}</option>
                 @endforeach
             </select>
         </div>
 
         <div>
             <label for="teacher" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Wali Kelas</label>
-            <select id="teacher" name="teacher"
+            <select id="teacher" name="teacher_id"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 @foreach ($teachers as $teacher)
                     <option value="{{ $teacher['id'] }}">{{ $teacher['name'] }}</option>

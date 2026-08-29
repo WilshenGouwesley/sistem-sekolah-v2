@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($schoolclasses as $class)
+            @foreach ($schoolClasses as $class)
                 <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5]">
                     <td class="px-5 py-4 font-display text-lg text-[#A16207]">
                         {{ $loop->iteration }}

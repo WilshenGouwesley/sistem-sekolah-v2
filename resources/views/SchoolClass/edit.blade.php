@@ -7,15 +7,13 @@
         <a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
             Induk</a>
         <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Ubah Data Kelas</h1>
-        <p class="mt-1 text-sm text-slate-500">Memperbarui catatan atas nama <span class="font-medium text-[#16213A]">Budi
-                Ariyanto</span>.</p>
     </div>
 
     <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
         <div>
             <label for="name"
                 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama Kelas</label>
-            <input type="text" id="name" name="name" value="2024001"
+            <input type="text" id="name" name="name" value="{{ $class['name'] }}" placeholder="Contoh: XII TKJ 1"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
         </div>
 
