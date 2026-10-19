@@ -13,27 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $userTeacherEmail = 'richard@ski.sch.id';
-        $userStudentEmail = 'wilshen.001@ski.sch.id';
-
-        // User Teacher
-        User::updateOrCreate(
-            ['email' => $userTeacherEmail],
-            [
-                'name' => 'Richard Marcell',
-                'password' => bcrypt('password'),
-                'role' => 'teacher',
-            ]
-        );
-
-        // User Student
-        User::updateOrCreate(
-            ['email' => $userStudentEmail],
-            [
-                'name' => 'Wilshen',
-                'password' => bcrypt('password'),
-                'role' => 'student',
-            ]
-        );
+        User::factory(100)->create();
     }
 }

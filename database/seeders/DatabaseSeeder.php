@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Major;
+use App\Models\SchoolClass;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,8 +19,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            StudentSeeder::class,
             UserSeeder::class,
+            MajorSeeder::class,
+            ClassSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }
